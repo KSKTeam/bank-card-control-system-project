@@ -1,1 +1,2 @@
-Karichkovskiy commit
+Karichkovskiy rebase commit
+Karichkovskiy merge commit
