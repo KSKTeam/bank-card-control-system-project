@@ -1,4 +1,2 @@
 Karichkovskiy rebase commit
 Karichkovskiy merge commit
-Karichkovskiy new commit
-Karichkovskiy new commit2
