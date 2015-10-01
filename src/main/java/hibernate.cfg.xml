@@ -13,7 +13,8 @@
         <property name="hibernate.cache.use_second_level_cache">false</property>
         <property name="show_sql">true</property>
         
-        <!-- <mapping class="org.karichkovskiy.dto.UserDetails"/> -->
+        <mapping class="org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.Transaction"/>
+        <mapping class="org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User"/>
         
     </session-factory>
 </hibernate-configuration>
