@@ -1,10 +1,13 @@
 package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction;
 
-import java.sql.Date;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,16 +24,24 @@ public class Transaction {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 	
+	@Lob
 	private String description;
 	
+	@Column(name="CREATED_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 	
 	private double total;
 	
 	@ManyToOne
+	@JoinColumn(name="CREATED_BY")
 	private User createdBy;
 	
+	@Column(name="CARD_NUMBER")
 	private long cardNumber;
+	
+	@Column(name="TRANSACTION_CODE")
+	private String transactionCode;
 	
 	@ManyToOne
 	private TransactionType type;
@@ -99,5 +110,13 @@ public class Transaction {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getTransactionCode() {
+		return transactionCode;
+	}
+
+	public void setTransactionCode(String transactionCode) {
+		this.transactionCode = transactionCode;
 	}
 }
