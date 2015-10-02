@@ -9,10 +9,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name="TRANSACTION_TYPES")
 public class TransactionType {
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private short id;
+	
 	private short number;
 	
 	private String name;
+
+	public short getId() {
+		return id;
+	}
+
+	public void setId(short id) {
+		this.id = id;
+	}
 
 	public short getNumber() {
 		return number;
