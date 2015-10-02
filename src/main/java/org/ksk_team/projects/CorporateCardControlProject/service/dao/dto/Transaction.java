@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,6 +22,7 @@ public class Transaction {
 	
 	private String description;
 	
+	@Temporal(TemporalType.DATE)
 	private Date createdAt;
 	
 	private double total;
