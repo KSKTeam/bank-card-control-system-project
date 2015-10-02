@@ -2,6 +2,7 @@ package org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -9,7 +10,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.Role;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User;
 import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.TransactionType;
 
 public class HibernateService implements DatabaseConnection{
 	
@@ -97,7 +101,23 @@ public class HibernateService implements DatabaseConnection{
 
 	public static void main(String[] args) {
 		HibernateService service = HibernateService.getInstance();
+		Role role = new Role();
+		role.setName("Manager");
+		
+		User user = new User();
+		user.setRole(role);
+		
+		TransactionType type = new TransactionType();
+		type.setName("Food");
+		
 		Transaction transaction = new Transaction();
+		transaction.setCardNumber(128323470L);
+		transaction.setCreatedAt(new Date());
+		transaction.setTotal(300.45);
+		transaction.setType(type);
+		transaction.setDescription("Some transaction");
+		transaction.setCreatedBy(user);
+		
 		service.insert(transaction);
 		
 		List<Transaction> list = service.getAllEntities(Transaction.class);
