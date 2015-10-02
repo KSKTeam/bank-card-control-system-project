@@ -26,7 +26,9 @@ public class User {
 	
 	private String middleName;
 	
-	private List<String> phoneNumbers;
+	//private List<String> phoneNumbers;
+	
+	private String email;
 	
 	@OneToOne
 	private Role role;
@@ -37,14 +39,6 @@ public class User {
 
 	public void setLogin(String login) {
 		this.login = login;
-	}
-
-	public List<String> getPhoneNumbers() {
-		return phoneNumbers;
-	}
-
-	public void setPhoneNumbers(List<String> phoneNumbers) {
-		this.phoneNumbers = phoneNumbers;
 	}
 
 	public Role getRole() {
@@ -85,6 +79,14 @@ public class User {
 
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

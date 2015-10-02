@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto;
+package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction;
 
 import java.sql.Date;
 
@@ -11,6 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User;
 
 @Entity
 @Table(name="TRANSACTIONS")
@@ -22,7 +23,6 @@ public class Transaction {
 	
 	private String description;
 	
-	@Temporal(TemporalType.DATE)
 	private Date createdAt;
 	
 	private double total;
@@ -31,6 +31,11 @@ public class Transaction {
 	private User createdBy;
 	
 	private long cardNumber;
+	
+	@ManyToOne
+	private TransactionType type;
+	
+	private String address;
 	
 	public String getId() {
 		return id;
@@ -78,5 +83,21 @@ public class Transaction {
 
 	public void setCardNumber(long cardNumber) {
 		this.cardNumber = cardNumber;
+	}
+
+	public TransactionType getType() {
+		return type;
+	}
+
+	public void setType(TransactionType type) {
+		this.type = type;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

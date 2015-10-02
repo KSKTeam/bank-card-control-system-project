@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.Transaction;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
 
 public class HibernateService implements DatabaseConnection{
 	
