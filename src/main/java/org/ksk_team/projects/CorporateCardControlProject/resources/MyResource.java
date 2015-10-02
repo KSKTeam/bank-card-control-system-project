@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject;
+package org.ksk_team.projects.CorporateCardControlProject.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
