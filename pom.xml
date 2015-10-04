@@ -46,17 +46,25 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- Hibernate library dependency -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.0.1.Final</version>
 		</dependency>
 
-		<!-- Postgresql Driver connection -->
+		<!-- Postgresql Driver dependency -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1203-jdbc41</version>
+		</dependency>
+
+		<!-- JavaMail library dependency -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
 		</dependency>
 
 		<!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
