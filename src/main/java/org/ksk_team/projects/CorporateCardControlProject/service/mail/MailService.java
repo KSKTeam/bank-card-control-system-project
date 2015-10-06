@@ -32,7 +32,8 @@ public class MailService {
 		// Get the default Session object.
 		Session session = Session.getInstance(mail_config, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("jack.karichkovskiy", "Tdutybq7");
+				return new PasswordAuthentication(mail_config.getProperty("mail.smtp.login"),
+						mail_config.getProperty("mail.smtp.password"));
 			}
 		});
 
@@ -60,6 +61,41 @@ public class MailService {
 		}
 	}
 
+	public void sendHTMLMessage(String to, String from, String subject, String body) {
+
+		// Session session = Session.getInstance(mail_config);
+		// Get the default Session object.
+		Session session = Session.getInstance(mail_config, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(mail_config.getProperty("mail.smtp.login"),
+						mail_config.getProperty("mail.smtp.password"));
+			}
+		});
+
+		try {
+			// Create a default MimeMessage object.
+			MimeMessage message = new MimeMessage(session);
+
+			// Set From: header field of the header.
+			message.setFrom(new InternetAddress(from));
+
+			// Set To: header field of the header.
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+			// Set Subject: header field
+			message.setSubject(subject);
+
+			// Send the actual HTML message, as big as you like
+			message.setContent(body, "text/html");
+
+			// Send message
+			Transport.send(message);
+			System.out.println("Sent message successfully....");
+		} catch (MessagingException mex) {
+			mex.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		MailService mailService = null;
 		try {
@@ -71,7 +107,7 @@ public class MailService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mailService.sendMessage("jack.karichkovskiy@gmail.com", "noreply@yandex.com", "This is the Subject Line!",
-				"This is actual message");
+		mailService.sendHTMLMessage("karichkovsky@yandex.com", "jack.karichkovskiy@gmail.com", "This is the Subject Line!",
+				"<h1>This is actual message</h1>");
 	}
 }
