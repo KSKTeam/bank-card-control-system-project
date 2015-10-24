@@ -19,11 +19,21 @@ public class MailService {
 
 	private Properties mail_config = new Properties();
 
-	public MailService() throws FileNotFoundException, IOException {
+	private static MailService instance = null;
+	
+	public static MailService getInstance() throws FileNotFoundException, IOException{
+		if(instance == null){
+			return instance = new MailService();
+		}else{
+			return instance;
+		}
+	}
+	
+	private MailService() throws FileNotFoundException, IOException {
 		this(DEFAULT_CONFIG_PATH);
 	}
 
-	public MailService(String mail_config_path) throws FileNotFoundException, IOException {
+	private MailService(String mail_config_path) throws FileNotFoundException, IOException {
 		mail_config.load(new FileInputStream(mail_config_path));
 	}
 
