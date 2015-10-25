@@ -27,7 +27,7 @@ Example:
 </tomcat-users>
 ```
 
-3. add user from point 2. to your server(id needs to be "TomcatServer") in `<MAVEN_HOME>/conf/settings.xml` file
+3. add user from point 2 to your server(id needs to be "TomcatServer") in `<MAVEN_HOME>/conf/settings.xml` file
 
 Example:
 
