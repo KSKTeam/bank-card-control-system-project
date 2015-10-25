@@ -49,6 +49,6 @@ Example:
 ```
 cd CardControlProject
 ```
-6) enter command "mvn clean tomcat7:redeploy"
+6) enter command `mvn clean tomcat7:redeploy`
 
 7) Done! You may access the application by openning the browser and going to http://localhost:8080/CorporateCardControlProject/
