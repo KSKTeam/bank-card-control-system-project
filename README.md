@@ -29,7 +29,7 @@ Example:
 </tomcat-users>
 ```
 
-3) add user from point 2) to your server(id needs to be "TomcatServer") in `<MAVEN_HOME>/conf/settings.xml` file
+3) add user from point 2) to your server(id needs to be named **TomcatServer**) in `<MAVEN_HOME>/conf/settings.xml` file
 
 Example:
 
@@ -45,7 +45,7 @@ Example:
 </servers>
 ```
 
-4) start up your Tomcat7 server
+4) start up your *Tomcat7* server
 
 5) go to cloned repository
 
@@ -53,6 +53,6 @@ Example:
 cd CardControlProject
 ```
 
-6) enter command "mvn clean tomcat7:redeploy"
+6) enter command `mvn clean tomcat7:redeploy`
 
 7) Done! You may access the application by openning the browser and going to http://localhost:8080/CorporateCardControlProject/
