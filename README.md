@@ -10,11 +10,11 @@ The project allows bank managers to control costs from corporate banking cards t
 
 ##Usage:
 
-1) clone this repo
+1. clone this repo
 ```
 git clone https://github.com/KSKTeam/bank-card-control-system-project.git
 ```
-2) add user with <manager-script> role to your `<TOMCAT_HOME>/conf/tomcat-users.xml` file
+2. add user with <manager-script> role to your `<TOMCAT_HOME>/conf/tomcat-users.xml` file
 
 Example:
 
@@ -27,7 +27,7 @@ Example:
 </tomcat-users>
 ```
 
-3) add user from point 2) to your server(id needs to be "TomcatServer") in `<MAVEN_HOME>/conf/settings.xml` file
+3. add user from point 2. to your server(id needs to be "TomcatServer") in `<MAVEN_HOME>/conf/settings.xml` file
 
 Example:
 
@@ -43,12 +43,12 @@ Example:
 </servers>
 ```
 
-4) start up your Tomcat7 server
+4. start up your Tomcat7 server
 
-5) go to cloned repository
+5. go to cloned repository
 ```
 cd CardControlProject
 ```
-6) enter command `mvn clean tomcat7:redeploy`
+6. enter command `mvn clean tomcat7:redeploy`
 
-7) Done! You may access the application by openning the browser and going to http://localhost:8080/CorporateCardControlProject/
+7. Done! You may access the application by openning the browser and going to http://localhost:8080/CorporateCardControlProject/
