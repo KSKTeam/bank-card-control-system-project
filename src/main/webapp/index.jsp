@@ -2,10 +2,10 @@
 <%@page import="java.io.InputStream"%>
 <html>
 <body>
-    <h2>Jersey RESTful Web Application!</h2>
+    <h2>Banking Card Control Web Application!</h2>
     <p><a href="webapi/myresource">Jersey resource</a>
-    <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
-    for more information on Jersey!
+    <p>Visit <a href="https://github.com/KSKTeam/bank-card-control-system-project">GitHub repository</a>
+    for more information on this project!
     <% 
     	InputStream is = getServletContext().getResource("WEB-INF/classes/version/version.properties").openStream();
     	Properties gitProp = new Properties();
