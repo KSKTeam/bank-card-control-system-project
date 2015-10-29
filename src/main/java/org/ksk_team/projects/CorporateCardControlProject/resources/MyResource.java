@@ -24,8 +24,8 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-    	HibernateService instance = HibernateService.getInstance("WEB-INF/classes/hibernate/hibernate.cfg.xml");
-    	Transaction transaction = instance.read("d0c31fb8-0feb-4168-b9c1-fd42e7f60a56", Transaction.class);
+    	HibernateService instance = HibernateService.getInstance();
+    	Transaction transaction = instance.read("69a55cdf-4261-40b1-bd1f-7054f88577f4", Transaction.class);
         return transaction.toString();
     }
 }
