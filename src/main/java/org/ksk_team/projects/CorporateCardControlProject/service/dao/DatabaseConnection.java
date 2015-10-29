@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface DatabaseConnection {
-	public void insert(Object obj);
+	void insert(Object obj);
 	
-	public <T extends Serializable, V> V read(T id, Class<V> objClass);
+	<T extends Serializable, V> V read(T id, Class<V> objClass);
 	
-	public void update(Object obj);
+	void update(Object obj);
 	
-	public void delete(Object obj);
+	void delete(Object obj);
 	
-	public <T>List<T> getAllEntities(Class<T> objClass);
+	<T>List<T> getAllEntities(Class<T> objClass);
 }

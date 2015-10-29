@@ -17,7 +17,7 @@ public class MailService {
 
 	private final static String DEFAULT_CONFIG_PATH = "src/main/resources/mail/mail.properties";
 
-	private Properties mail_config = new Properties();
+	private Properties mailConfig = new Properties();
 
 	private static MailService instance = null;
 	
@@ -33,17 +33,17 @@ public class MailService {
 		this(DEFAULT_CONFIG_PATH);
 	}
 
-	private MailService(String mail_config_path) throws FileNotFoundException, IOException {
-		mail_config.load(new FileInputStream(mail_config_path));
+	private MailService(String mailConfigPath) throws FileNotFoundException, IOException {
+		mailConfig.load(new FileInputStream(mailConfigPath));
 	}
 
 	public void sendMessage(String to, String from, String subject, String body) {
 		// Session session = Session.getInstance(mail_config);
 		// Get the default Session object.
-		Session session = Session.getInstance(mail_config, new javax.mail.Authenticator() {
+		Session session = Session.getInstance(mailConfig, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(mail_config.getProperty("mail.smtp.login"),
-						mail_config.getProperty("mail.smtp.password"));
+				return new PasswordAuthentication(mailConfig.getProperty("mail.smtp.login"),
+						mailConfig.getProperty("mail.smtp.password"));
 			}
 		});
 
@@ -75,10 +75,10 @@ public class MailService {
 
 		// Session session = Session.getInstance(mail_config);
 		// Get the default Session object.
-		Session session = Session.getInstance(mail_config, new javax.mail.Authenticator() {
+		Session session = Session.getInstance(mailConfig, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(mail_config.getProperty("mail.smtp.login"),
-						mail_config.getProperty("mail.smtp.password"));
+				return new PasswordAuthentication(mailConfig.getProperty("mail.smtp.login"),
+						mailConfig.getProperty("mail.smtp.password"));
 			}
 		});
 

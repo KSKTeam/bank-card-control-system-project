@@ -5,6 +5,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.hibernate.Hibernate;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate.HibernateService;
+
 /**
  * Root resource (exposed at "myresource" path)
  */
@@ -20,6 +24,8 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "Got it!";
+    	HibernateService instance = HibernateService.getInstance("WEB-INF/classes/hibernate/hibernate.cfg.xml");
+    	Transaction transaction = instance.read("d0c31fb8-0feb-4168-b9c1-fd42e7f60a56", Transaction.class);
+        return transaction.toString();
     }
 }

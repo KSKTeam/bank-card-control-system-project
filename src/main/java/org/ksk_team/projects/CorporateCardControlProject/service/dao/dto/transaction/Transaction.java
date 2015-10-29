@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user.User;
 
 @Entity
 @Table(name="TRANSACTIONS")
@@ -98,5 +98,12 @@ public class Transaction {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	@Override
+	public String toString() {
+		return "Transaction [id=" + id + ", description=" + description + ", createdAt=" + createdAt + ", total="
+				+ total + ", createdBy=" + createdBy + ", cardNumber=" + cardNumber + ", type=" + type + ", address="
+				+ address + "]";
 	}
 }

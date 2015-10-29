@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto;
+package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user;
 
 import java.util.List;
 

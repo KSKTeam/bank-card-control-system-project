@@ -10,10 +10,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.Role;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User;
 import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
 import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.TransactionType;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user.Role;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user.User;
 
 public class HibernateService implements DatabaseConnection{
 	
