@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate;
+package org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,13 +9,14 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.TransactionType;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user.Role;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user.User;
+import org.kskteam.projects.cardcontrolproject.service.dao.DatabaseConnection;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.TransactionType;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.Role;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
+import org.kskteam.projects.cardcontrolproject.service.dao.jpa.JPAConnection;
 
-public class HibernateService implements DatabaseConnection{
+public class HibernateService extends JPAConnection{
 	
 	private static HibernateService instance;
 	
@@ -36,12 +37,12 @@ public class HibernateService implements DatabaseConnection{
 			return instance = new HibernateService();
 	}
 	
-	public static HibernateService getInstance(String configPath){
+	/*public static HibernateService getInstance(String configPath){
 		if(instance != null)
 			return instance;
 		else
 			return instance = new HibernateService(configPath);
-	}
+	}*/
 	
 	public void destroy(){
 		factory.close();

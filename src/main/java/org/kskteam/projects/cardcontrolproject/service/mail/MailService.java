@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.mail;
+package org.kskteam.projects.cardcontrolproject.service.mail;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

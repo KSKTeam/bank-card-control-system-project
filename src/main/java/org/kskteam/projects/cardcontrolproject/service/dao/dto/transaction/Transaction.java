@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction;
+package org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.user.User;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
 
 @Entity
 @Table(name="TRANSACTIONS")

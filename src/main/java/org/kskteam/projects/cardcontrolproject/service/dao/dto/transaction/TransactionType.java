@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction;
+package org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

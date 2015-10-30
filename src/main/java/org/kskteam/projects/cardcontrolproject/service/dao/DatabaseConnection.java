@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao;
+package org.kskteam.projects.cardcontrolproject.service.dao;
 
 import java.io.Serializable;
 import java.util.List;
