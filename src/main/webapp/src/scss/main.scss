@@ -1,0 +1,74 @@
+@import '_configuration';
+
+body{
+	background: url(../images/background.jpg) no-repeat 50% 0;
+    background-size: cover;
+}
+
+.description{
+	margin: 50px 0 0 50px;
+	&__header{
+		@include font-style('OSC-Bold', 100px, #000);
+		margin: 0;
+	}
+	&__info{
+		@include font-style('OSC-Italic', 30px, #000);
+
+	}
+}
+
+.authentification{
+	@include font-style('OSC-Bold', 35px, #fff);
+	position: absolute;
+	left: 50%;
+	bottom: 30%;
+	transform: translate(-50%, 50%);
+	text-align: center;
+	&__name, &__password{
+		@include font-style('OSC-Light', 30px, #fff);
+		position: relative;
+		display: block;
+		width: 300px;
+		margin: 20px auto;
+		border-bottom: 2px solid #fff;
+		text-align: center;
+		&.error{
+			border-color: red;
+		}
+	}
+	&__submit{
+		@include font-style('OSC-Light', 20px, #000);
+		position: relative;
+		width: 200px;
+		padding: 15px 0 15px 0;
+		margin: 20px auto;
+		border: 0px solid #fff;
+		border-radius: 30px;
+		background-color: #fff;
+		outline: none;
+		transition: color ease .2s;
+		z-index: 1;
+
+		&:after{
+			content: "";
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 0;
+			height: 100%;
+			background-color: #000;
+			border-radius: 30px;
+			transform: translate(-50%,-50%);
+			transition: all ease .2s;
+			opacity: 0;
+			z-index: -1;
+		}
+		&:hover:after{
+			width: 100%;
+			opacity: 1;
+		}
+		&:hover{
+			color: #fff;
+		}
+	}
+}
