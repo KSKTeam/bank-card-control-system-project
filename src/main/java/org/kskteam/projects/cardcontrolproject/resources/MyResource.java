@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.resources;
+package org.kskteam.projects.cardcontrolproject.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -6,9 +6,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate.HibernateService;
+import org.kskteam.projects.cardcontrolproject.service.dao.DatabaseConnection;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
+import org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate.HibernateService;
 
 /**
  * Root resource (exposed at "myresource" path)

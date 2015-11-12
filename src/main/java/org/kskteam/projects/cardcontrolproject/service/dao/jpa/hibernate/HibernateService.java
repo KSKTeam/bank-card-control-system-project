@@ -1,4 +1,4 @@
-package org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate;
+package org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.Role;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
-import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.TransactionType;
+import org.kskteam.projects.cardcontrolproject.service.dao.DatabaseConnection;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.TransactionType;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.Role;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
 
 @SessionScoped
 @Default
