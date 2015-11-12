@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
 
 @Entity
 @Table(name="TRANSACTIONS")
+@XmlRootElement
 public class Transaction {
 	@Id
 	@GeneratedValue(generator = "uuid")
@@ -36,6 +38,22 @@ public class Transaction {
 	
 	private String address;
 	
+	public Transaction() {
+	}
+
+	public Transaction(String id, String description, Date createdAt, double total, User createdBy, long cardNumber,
+			TransactionType type, String address) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.createdAt = createdAt;
+		this.total = total;
+		this.createdBy = createdBy;
+		this.cardNumber = cardNumber;
+		this.type = type;
+		this.address = address;
+	}
+
 	public String getId() {
 		return id;
 	}

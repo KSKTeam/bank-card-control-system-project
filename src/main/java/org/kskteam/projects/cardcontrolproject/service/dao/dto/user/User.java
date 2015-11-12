@@ -8,11 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="USERS")
+@XmlRootElement
 public class User {
 	@Id
 	@GeneratedValue(generator = "uuid")

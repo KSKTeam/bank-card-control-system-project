@@ -1,22 +1,26 @@
-package org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate;
+package org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Default;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.kskteam.projects.cardcontrolproject.service.dao.DatabaseConnection;
-import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
-import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.TransactionType;
-import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.Role;
-import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
-import org.kskteam.projects.cardcontrolproject.service.dao.jpa.JPAConnection;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.Role;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.User;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.TransactionType;
 
-public class HibernateService extends JPAConnection{
+@SessionScoped
+@Default
+public class HibernateService implements DatabaseConnection{
 	
 	private static HibernateService instance;
 	
@@ -37,12 +41,12 @@ public class HibernateService extends JPAConnection{
 			return instance = new HibernateService();
 	}
 	
-	/*public static HibernateService getInstance(String configPath){
+	public static HibernateService getInstance(String configPath){
 		if(instance != null)
 			return instance;
 		else
 			return instance = new HibernateService(configPath);
-	}*/
+	}
 	
 	public void destroy(){
 		factory.close();

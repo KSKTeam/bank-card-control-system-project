@@ -75,6 +75,41 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.lukegb.mojo
+										</groupId>
+										<artifactId>
+											gitdescribe-maven-plugin
+										</artifactId>
+										<versionRange>
+											[3.0,)
+										</versionRange>
+										<goals>
+											<goal>gitdescribe</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<dependencyManagement>
@@ -133,25 +168,16 @@
 		</dependency>
 
 		<dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+
+		<dependency>
 			<groupId>com.lukegb.mojo</groupId>
 			<artifactId>gitdescribe-maven-plugin</artifactId>
 			<version>3.0</version>
 		</dependency>
 
-		<!-- Log4j library dependency(logging) -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-
-		<!-- uncomment this to get JSON support <dependency> <groupId>org.glassfish.jersey.media</groupId> 
-			<artifactId>jersey-media-moxy</artifactId> </dependency> -->
 	</dependencies>
 
 	<properties>

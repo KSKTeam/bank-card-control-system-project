@@ -1,13 +1,14 @@
-package org.kskteam.projects.cardcontrolproject.resources;
+package org.ksk_team.projects.CorporateCardControlProject.resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.hibernate.Hibernate;
-import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
-import org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate.HibernateService;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.DatabaseConnection;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.dto.transaction.Transaction;
+import org.ksk_team.projects.CorporateCardControlProject.service.dao.hibernate.HibernateService;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -15,6 +16,9 @@ import org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate.Hiberna
 @Path("myresource")
 public class MyResource {
 
+	
+	private DatabaseConnection conn = HibernateService.getInstance();
+	
     /**
      * Method handling HTTP GET requests. The returned object will be sent
      * to the client as "text/plain" media type.
@@ -22,10 +26,9 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getIt() {
-    	HibernateService instance = HibernateService.getInstance();
-    	Transaction transaction = instance.read("69a55cdf-4261-40b1-bd1f-7054f88577f4", Transaction.class);
-        return transaction.toString();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Transaction getIt(@QueryParam("id") String id) {
+    	Transaction transaction = conn.read(id, Transaction.class);
+        return transaction;
     }
 }
