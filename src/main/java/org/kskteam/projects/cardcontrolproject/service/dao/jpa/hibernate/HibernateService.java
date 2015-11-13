@@ -30,22 +30,11 @@ public class HibernateService implements DatabaseConnection{
 		factory = new Configuration().configure().buildSessionFactory();
 	}
 	
-	private HibernateService(String configPath){
-		factory = new Configuration().configure(configPath).buildSessionFactory();
-	}
-	
 	public static HibernateService getInstance(){
 		if(instance != null)
 			return instance;
 		else
 			return instance = new HibernateService();
-	}
-	
-	public static HibernateService getInstance(String configPath){
-		if(instance != null)
-			return instance;
-		else
-			return instance = new HibernateService(configPath);
 	}
 	
 	public void destroy(){
