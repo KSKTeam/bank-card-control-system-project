@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Default;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,32 +15,27 @@ import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Trans
 import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.Role;
 import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
 
-@SessionScoped
-@Default
 public class HibernateService implements DatabaseConnection{
 	
 	private static HibernateService instance;
 	
-	private SessionFactory factory;
-	
-	private HibernateService(){
-		factory = new Configuration().configure().buildSessionFactory();
+	/**
+	 * Constructor of Singleton instance
+	 * @param dummyStr - to prevent reflection initialization added non-valuable String argument
+	 */
+	private HibernateService(String dummyStr){
 	}
 	
 	public static HibernateService getInstance(){
 		if(instance != null)
 			return instance;
 		else
-			return instance = new HibernateService();
-	}
-	
-	public void destroy(){
-		factory.close();
+			return instance = new HibernateService("");
 	}
 
 	@Override
 	public void insert(Object obj) {
-		Session session = factory.openSession();
+		Session session = HibernateSession.getSession();
 		session.beginTransaction();
 		session.save(obj);
 		session.getTransaction().commit();
@@ -52,7 +44,7 @@ public class HibernateService implements DatabaseConnection{
 
 	@Override
 	public void update(Object obj) {
-		Session session = factory.openSession();
+		Session session = HibernateSession.getSession();
 		session.beginTransaction();
 		session.update(obj);
 		session.getTransaction().commit();
@@ -61,7 +53,7 @@ public class HibernateService implements DatabaseConnection{
 
 	@Override
 	public void delete(Object obj) {
-		Session session = factory.openSession();
+		Session session = HibernateSession.getSession();
 		session.beginTransaction();
 		session.delete(obj);
 		session.getTransaction().commit();
@@ -71,7 +63,7 @@ public class HibernateService implements DatabaseConnection{
 	@Override
 	public <T extends Serializable, V> V read(T id, Class<V> objClass) {
 		V result = null;
-		Session session = factory.openSession();
+		Session session = HibernateSession.getSession();
 		session.beginTransaction();
 		result = session.get(objClass, id);
 		session.getTransaction().commit();
@@ -83,7 +75,7 @@ public class HibernateService implements DatabaseConnection{
 	public <T> List<T> getAllEntities(Class<T> objClass) {
 		List<T> resultList = new ArrayList<>();
 
-		Session session = factory.openSession();
+		Session session = HibernateSession.getSession();
 		session.beginTransaction();
 		Criteria criteria = session.createCriteria(objClass);
 		resultList = criteria.list();
@@ -117,6 +109,6 @@ public class HibernateService implements DatabaseConnection{
 		List<Transaction> list = service.getAllEntities(Transaction.class);
 		
 		System.out.println(list.size());
-		service.destroy();
+		HibernateFactory.destroy();
 	}
 }
