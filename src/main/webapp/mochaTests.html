@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mocha tests</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.3.4/mocha.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.4.1/chai.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.3.4/mocha.min.css">
+</head>
+<body>
+	<div id="mocha"></div>
+	<script>
+		var assert = chai.assert;
+		mocha.setup('bdd');
+
+		function validate(name, pass){
+		    if( !name || !pass) return false;
+		    if(pass.length < 8) return false;
+		    return true;
+		};
+
+		describe('validate', function(){
+			it('When pass and login are empty - returns false', function(){
+				assert.isFalse(validate('', ''));
+			});
+			it('When pass has length < 8 - returns false ', function(){
+				assert.isFalse(validate('John', '12345'));
+			});
+			it('When login is empty and pass was entered - returns false', function(){
+				assert.isFalse(validate('', '12113'));
+			});
+			it('When pass is empty and login was entered - returns false', function(){
+				assert.isFalse(validate('John', ''));
+			});
+			it('When login and pass were entered corectly - returns true', function(){
+				assert(validate('John', '12345678'));
+			})
+		});
+		mocha.run();
+	</script>
+</body>
+</html>
