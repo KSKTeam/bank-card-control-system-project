@@ -6,6 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.hibernate.cfg.Configuration;
 import org.kskteam.projects.cardcontrolproject.service.dao.DatabaseConnection;
 import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
 import org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate.HibernateService;
