@@ -68,7 +68,7 @@
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>
 			</plugin>
-			<!-- Uncomment if you want to include checkstyle validation to the build -->
+			<!-- Uncomment if you want to include checkstyle validation to the build! -->
 			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
