@@ -1,5 +1,5 @@
 /target/
-.*
-^.gitignore
-^.travis.yml
+.classpath
+.project
+.settings*
 /node_modules/
