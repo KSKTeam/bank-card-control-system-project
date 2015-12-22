@@ -12,7 +12,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.kskteam.projects.cardcontrolproject.service.dao.DatabaseConnection;
-import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
 import org.kskteam.projects.cardcontrolproject.service.dao.dto.user.User;
 import org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate.HibernateService;
 import org.kskteam.projects.cardcontrolproject.service.dao.jpa.hibernate.UserService;
@@ -61,5 +60,8 @@ public class UserResourse {
 		connection.delete(user);
 	}
 	
-	
+	@Path("/{userId}/transactions")
+	public TransactionResource getTicketResource() {
+		return new TransactionResource();
+	}
 }

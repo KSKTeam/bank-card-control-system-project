@@ -1,16 +1,21 @@
 package org.kskteam.projects.cardcontrolproject.service.dao.dto.user;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction;
 
 @Entity
 @Table(name="USERS")
@@ -37,6 +42,9 @@ public class User {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Role role;
+	
+	@OneToMany(mappedBy = "createdBy", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Transaction> transactions = new ArrayList<>();
 	
 	public String getLogin() {
 		return login;
@@ -100,6 +108,15 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@XmlTransient
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
 	}
 
 	@Override
