@@ -1,5 +1,5 @@
 function sendForm(items) {
-    var URL = 'some path to server',
+    var URL = 'http://localhost:8080/cardcontrolproject/webapi/users',
         form = items.form,
         name = items.name,
         password = items.password,
@@ -21,12 +21,18 @@ function sendForm(items) {
         } else {
             var XHR = new XMLHttpRequest();
             var data = JSON.stringify({
-                name: name.value,
+                login: name.value,
                 password: password.value
             });
+            console.log(data);
             XHR.open("POST", URL, true);
             XHR.setRequestHeader('Content-type', 'application/json; charset=utf-8');
             XHR.send(data);
+            XHR.onreadystatechange = function(){
+            	if(XHR.readyState != 4) return;
+            	console.log(XHR.status);
+            	//var getUser = new XMLHTT
+            }
         }
     });
 }
