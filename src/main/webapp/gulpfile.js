@@ -5,7 +5,8 @@ var gulp = require('gulp'),
          rename: {
             'gulp-ruby-sass': 'sass'
         }
-    });
+    }),
+    browsersync = require('browser-sync');
 
 
 var src = 'src/',
@@ -60,11 +61,18 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(build + 'js/'));
 });
 
+gulp.task('bsync', function(){
+    browsersync.init([build + 'css/*.css', build + 'js/*.js'], {
+        server: {
+            baseDir: './'
+        }
+    });
+});
 
 gulp.task('watch', function() {
-    gulp.watch(src + 'scss/*.scss', ['sass']);
+    gulp.watch(src + 'scss/*.scss', ['sass', 'bsync']);
     gulp.watch(src + 'images/*', ['imagemin']);
-    gulp.watch(src + 'js/*.js', ['eslint', 'scripts']);
+    gulp.watch(src + 'js/*.js', ['eslint', 'scripts', 'bsync']);
     gulp.watch(src + 'icons/*', ['iconmin']);
 });
 
