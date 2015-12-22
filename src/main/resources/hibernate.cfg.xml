@@ -11,7 +11,7 @@
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/cardcontroldb</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.cache.use_second_level_cache">false</property>
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
         
         <mapping class="org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.Transaction"/>
         <mapping class="org.kskteam.projects.cardcontrolproject.service.dao.dto.transaction.TransactionType"/>
